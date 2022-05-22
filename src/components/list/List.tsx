@@ -1,3 +1,4 @@
+import Item from "./item/Item";
 import style from "./_list.module.scss";
 
 
@@ -25,10 +26,11 @@ const tasks = [{
         <ul>
             {tasks.map( item =>{
                 return(
-                    <li key={item.id} className={style.item}>
-                        <h3>{item.task}</h3>
-                        <span>{item.time}</span>
-                    </li>
+
+                    <Item 
+                        {...item} //Ja desestruturo todo meu objeto e consigo passar como props
+                    />
+                     
                 )
             })}
         </ul>

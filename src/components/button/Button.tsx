@@ -1,7 +1,7 @@
 import style from "./_button.module.scss"
 
 
-function Button({ children } :any) {
+function Button({ children } : { children: string }) {
   return (
     <button className={style.button}>
         {children}
