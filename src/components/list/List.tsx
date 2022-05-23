@@ -1,23 +1,14 @@
 import Item from "./item/Item";
 import style from "./_list.module.scss";
+import { InterfaceTasks } from "../../types/task";
+
+interface props {
+    tasks: InterfaceTasks[],
+    selectTask : (selectTask : InterfaceTasks) => void ;
+}
 
 
-function List() {
-
-const tasks = [{
-    task: "React",
-    time: "02:00:00",
-    id: 1
-},{
-    task: "Javascript",
-    time: "01:00:00",
-    id: 2
-},
-{
-    task: "Typescript",
-    time: "03:00:00",
-    id: 3
-}];
+function List({tasks, selectTask}: props) {
 
   return (
     <aside className={style.list}>
@@ -28,6 +19,8 @@ const tasks = [{
                 return(
 
                     <Item 
+                        selectTask={selectTask}
+                        key={item.id}
                         {...item} //Ja desestruturo todo meu objeto e consigo passar como props
                     />
                      
