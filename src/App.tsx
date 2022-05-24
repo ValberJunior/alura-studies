@@ -19,6 +19,24 @@ const selectTask = (selectedTask :InterfaceTasks ) => {
   );
 }
 
+  const finishTask = ()=>{
+    if(selected){
+      setSelected(undefined);
+      setTasks(allTasks => allTasks.map(
+        task=>{
+          if(task.id === selected.id){
+            return {
+              ...task,
+              selected: false,
+              completed: true
+            }
+          }
+          return task;
+        }
+      ));
+    }
+  }
+
   return (
     <section className={style.appStyle}>
       <Form setTasks={setTasks} />
@@ -26,7 +44,10 @@ const selectTask = (selectedTask :InterfaceTasks ) => {
         tasks={tasks}
         selectTask={selectTask}
         />
-      <StopWatch selected={selected}/>
+      <StopWatch
+      selected={selected}
+      finishTask={finishTask}
+      />
     </section>
   );
 }

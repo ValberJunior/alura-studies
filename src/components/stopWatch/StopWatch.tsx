@@ -6,10 +6,11 @@ import { InterfaceTasks } from "../../types/task";
 import { useEffect, useState } from "react";
 
 interface props {
-  selected : InterfaceTasks | undefined;
+  selected : InterfaceTasks | undefined,
+  finishTask: () => void
 }
 
-function StopWatch({selected}: props) {
+function StopWatch({selected, finishTask}: props) {
 
   const [ time, setTime ] = useState<number>();
 
@@ -27,6 +28,8 @@ function StopWatch({selected}: props) {
           setTime( i-1 );
           return regressive(i - 1);
         }
+
+        finishTask()
         
       }, 1000);
   }

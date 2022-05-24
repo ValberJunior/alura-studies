@@ -10,9 +10,10 @@ function Item({task, time, selected, completed, id, selectTask} : props ) {
       
     <li 
       key={id}
-      className={`${style.item} ${selected ? style.selectedItem : " "} `}
+      className={`${style.item} ${selected ? style.selectedItem : " "}
+       ${completed ? style.completedItem : " "}`}
       onClick={
-        ()=>selectTask(
+        ()=> !completed && selectTask(
           {
             task,
             time,
@@ -25,6 +26,7 @@ function Item({task, time, selected, completed, id, selectTask} : props ) {
       >
         <h3>{task}</h3>
         <span>{time}</span>
+        {completed && <span className={style.concluded} arial-label="completed task"></span>}
     </li>
   )
 }
