@@ -29,6 +29,10 @@
   .completedItem {
     background-color: #566F42;
     cursor: auto;
+
+    h3{
+      text-decoration:line-through;
+    }
   
     .concluded {
       display: block;
