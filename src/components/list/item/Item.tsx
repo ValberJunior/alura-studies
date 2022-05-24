@@ -1,5 +1,5 @@
 import { InterfaceTasks } from "../../../types/task";
-import style from "../_list.module.scss";
+import style from "./_item.module.scss";
 
 interface props extends InterfaceTasks {
   selectTask : (selectTask : InterfaceTasks) => void ;

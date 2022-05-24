@@ -1,0 +1,1 @@
+export { timeToSeconds } from "./utils/time";

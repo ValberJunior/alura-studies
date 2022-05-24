@@ -1,14 +1,31 @@
 import style from  "./_stopWatch.module.scss";
 import Button from "../button/Button"
 import Watch from "./watch/Watch";
+import { timeToSeconds } from "../../common";
+import { InterfaceTasks } from "../../types/task";
+import { useEffect, useState } from "react";
 
+interface props {
+  selected : InterfaceTasks | undefined;
+}
 
-function StopWatch() {
+function StopWatch({selected}: props) {
+
+  const [ time, setTime ] = useState<number>();
+
+  useEffect(()=>{
+
+    if(selected?.time){
+      setTime(timeToSeconds(selected?.time))
+    }
+
+  },[selected])
+
   return (
     <div className={style.stopWatch}>
         <h3 className={style.title}>Escolha um card e inicie o cronômetro</h3>
         <div className={style.watchWrapper}>
-            <Watch/>
+            <Watch time={time}/>
         </div>
         <Button>
             Começar

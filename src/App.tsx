@@ -26,7 +26,7 @@ const selectTask = (selectedTask :InterfaceTasks ) => {
         tasks={tasks}
         selectTask={selectTask}
         />
-      <StopWatch/>
+      <StopWatch selected={selected}/>
     </section>
   );
 }
