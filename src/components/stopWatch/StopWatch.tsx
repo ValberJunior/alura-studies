@@ -19,7 +19,17 @@ function StopWatch({selected}: props) {
       setTime(timeToSeconds(selected?.time))
     }
 
-  },[selected])
+  },[selected]);
+
+  const regressive = (i: number = 0) =>{
+      setTimeout(() => {
+        if(i > 0){
+          setTime( i-1 );
+          return regressive(i - 1);
+        }
+        
+      }, 1000);
+  }
 
   return (
     <div className={style.stopWatch}>
@@ -27,7 +37,7 @@ function StopWatch({selected}: props) {
         <div className={style.watchWrapper}>
             <Watch time={time}/>
         </div>
-        <Button>
+        <Button onClick={()=>{regressive(time)}}>
             Começar
         </Button>
     </div>

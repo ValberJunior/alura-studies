@@ -1,10 +1,10 @@
 import style from "./_button.module.scss"
 
 
-function Button({ children, type } : { children: string, type?: "button" | "submit" | "reset" | undefined }) {
+function Button({ children, type, onClick } : { children: string, type?: "button" | "submit" | "reset" | undefined , onClick? : ()=> void}) {
 
   return (
-    <button type={type || "button"} className={style.button}>
+    <button onClick={onClick} type={type || "button"} className={style.button}>
         {children}
     </button>
   )
